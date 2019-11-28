@@ -109,6 +109,7 @@ map <C-f> :Rg<CR>
 
 " NERDTree {{{
 map <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeIgnore = ['^node_modules$']
 " Start NERDTree if no file is specified on start up
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
