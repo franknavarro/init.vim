@@ -114,7 +114,7 @@ let g:NERDTreeIgnore = ['^node_modules$']
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " Add git symbols and file highlighting in NERDTree
-let g:NERDTreeGitStatusWithFlags = 0
+let g:NERDTreeGitStatusWithFlags = 1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:NERDTreeGitStatusNodeColorization = 1
 let g:NERDTreeColorMapCustom = {
@@ -160,7 +160,7 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 " COC {{{
 
 " Better display for messages
-set cmdheight=2
+" set cmdheight=2
 
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=300
