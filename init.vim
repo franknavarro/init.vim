@@ -138,6 +138,24 @@ let g:NERDTreeIndicatorMapCustom = {
     \ }
 " }}} NERDTree
 
+
+" COC Plugins {{{
+let g:coc_global_extensions = [
+  \ 'coc-marketplace',
+  \ 'co-snippets',
+  \ 'coc-tsserver',
+  \ 'coc-eslint',
+  \ 'coc-prettier',
+  \ 'coc-json',
+  \ 'coc-pairs',
+  \ ]
+" }}} COC Plugins
+
+" Prettier {{{
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+" }}} Prettier
+
+
 " COC {{{
 set cmdheight=2   " Better display for messages
 set updatetime=300    
