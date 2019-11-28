@@ -24,11 +24,17 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Color Dev Icons
 
 " Navigation & Searching
 Plug 'scrooloose/nerdtree'  " File Tree
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder for terminal
+Plug 'junegunn/fzf.vim' " Fuzzy finder for vim
+
 
 " Git integration
 Plug 'itchyny/vim-gitbranch'  " Display current git branch
 Plug 'tsony-tsonev/nerdtree-git-plugin' " Show git changes in NERDTree
+Plug 'airblade/vim-gitgutter' " Show git changes in line number column
 
+" Auto completion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 
 call plug#end()
@@ -65,6 +71,7 @@ let g:indent_guides_enable_on_vim_startup = 1
 " }}} Spaces & Tabs
 
 " UI Config {{{
+set hidden                   " Allow current buffer to be hidden
 set number                   " show line number
 set showcmd                  " show command in bottom bar
 set cursorline               " highlight current line
@@ -72,6 +79,9 @@ set wildmenu                 " visual autocomplete for command menu
 set showmatch                " highlight matching brace while typing
 set laststatus=2             " window will always have a status line
 set noshowmode               " Don't show '-- INSERT --' in the command line
+set nobackup
+set nowritebackup
+
 let g:lightline = {
   \ 'colorscheme': 'wombat',
   \ 'active': {
@@ -92,6 +102,8 @@ set hlsearch        " highlight match
 set ignorecase      " ignore case when searching
 set smartcase       " ignore case if search pattern is lower case
                     " case-sensitive otherwise
+map <C-p> :Files<CR>
+map <C-f> :Rg<CR>
 " }}} Search
 
 
@@ -101,7 +113,7 @@ map <C-n> :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " Add git symbols and file highlighting in NERDTree
-let g:NERDTreeGitStatusWithFlags = 1
+let g:NERDTreeGitStatusWithFlags = 0
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:NERDTreeGitStatusNodeColorization = 1
 let g:NERDTreeColorMapCustom = {
@@ -125,3 +137,58 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Unknown"   : "?"
     \ }
 " }}} NERDTree
+
+" COC {{{
+set cmdheight=2   " Better display for messages
+set updatetime=300    
+set signcolumn=yes    " always show signcolumns
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+
+" }}} COC
