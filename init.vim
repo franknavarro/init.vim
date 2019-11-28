@@ -17,12 +17,19 @@ Plug 'sheerun/vim-polyglot'             " Extended language support
 Plug 'ekalinin/Dockerfile.vim'          " Dockerfile support
 Plug 'nathanaelkane/vim-indent-guides'  " Indentation guides
 Plug 'itchyny/lightline.vim'            " Better Status line
+Plug 'ryanoasis/vim-devicons'           " Icons for vim
+" Patched Fira font for vim-devicons can be found at:
+" https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Color Dev Icons
 
 " Navigation & Searching
 Plug 'scrooloose/nerdtree'  " File Tree
 
 " Git integration
-Plug 'itchyny/vim-gitbranch'  "Display current git branch
+Plug 'itchyny/vim-gitbranch'  " Display current git branch
+Plug 'tsony-tsonev/nerdtree-git-plugin' " Show git changes in NERDTree
+
+
 
 call plug#end()
 " }}} Plugins
@@ -93,6 +100,30 @@ map <C-n> :NERDTreeToggle<CR>
 " Start NERDTree if no file is specified on start up
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" }}}
+" Add git symbols and file highlighting in NERDTree
+let g:NERDTreeGitStatusWithFlags = 1
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:NERDTreeGitStatusNodeColorization = 1
+let g:NERDTreeColorMapCustom = {
+    \ "Modified"  : ["#ffd700", "220", "NONE", "NONE"],  
+    \ "Staged"    : ["#87d700", "112", "NONE", "NONE"],  
+    \ "Untracked" : ["#ff5f00", "202", "NONE", "NONE"],  
+    \ "Dirty"     : ["#00afff", "39", "NONE", "NONE"],  
+    \ "Clean"     : ["#d0d0d0", "252", "NONE", "NONE"],
+    \ "Ignored"   : ["#585858", "240", "NONE", "NONE"]   
+    \ }
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
+" }}} NERDTree
 
 
