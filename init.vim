@@ -125,5 +125,3 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Unknown"   : "?"
     \ }
 " }}} NERDTree
-
-
