@@ -14,6 +14,7 @@ call plug#begin('~/.config/nvim/plugged')
 " Themes
 Plug 'drewtempelmeyer/palenight.vim'    " Palenight theme
 Plug 'sheerun/vim-polyglot'             " Extended language support
+Plug 'franknavarro/Isl-syntax'          " Isl syntax support
 Plug 'ekalinin/Dockerfile.vim'          " Dockerfile support
 Plug 'nathanaelkane/vim-indent-guides'  " Indentation guides
 Plug 'itchyny/lightline.vim'            " Better Status line
