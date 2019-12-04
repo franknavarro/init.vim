@@ -71,6 +71,14 @@ set copyindent      " copy indent from the previous line
 let g:indent_guides_enable_on_vim_startup = 1
 " }}} Spaces & Tabs
 
+" Indentation {{{
+set wrap
+set linebreak
+set nolist
+set breakindent
+set breakindentopt=shift:2
+" }}} Indentation
+
 " UI Config {{{
 set hidden                   " Allow current buffer to be hidden
 set number                   " show line number
