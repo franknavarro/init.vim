@@ -37,7 +37,7 @@ Plug 'airblade/vim-gitgutter' " Show git changes in line number column
 " Auto completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-surround'
-
+Plug 'mattn/emmet-vim'
 
 call plug#end()
 " }}} Plugins
