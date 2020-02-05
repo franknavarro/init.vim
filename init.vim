@@ -12,7 +12,12 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 
 " Themes
-Plug 'drewtempelmeyer/palenight.vim'    " Palenight theme
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'morhetz/gruvbox'
+Plug 'nanotech/jellybeans.vim'
+Plug 'sheerun/vim-wombat-scheme'
+Plug 'joshdick/onedark.vim'
+
 Plug 'sheerun/vim-polyglot'             " Extended language support
 Plug 'franknavarro/Isl-syntax'          " Isl syntax support
 Plug 'ekalinin/Dockerfile.vim'          " Dockerfile support
@@ -42,11 +47,12 @@ Plug 'mattn/emmet-vim'
 call plug#end()
 " }}} Plugins
 
+
 " Colors {{{
 syntax on
 set background=dark
-colorscheme palenight
-let g:palenight_terminal_italics=1  " Italics enabled for palenight
+colorscheme gruvbox
+
 
 " vim-indent guides colors
 let g:indent_guides_auto_colors = 0
