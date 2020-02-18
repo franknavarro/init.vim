@@ -27,6 +27,7 @@ Plug 'ryanoasis/vim-devicons'           " Icons for vim
 " Patched Fira font for vim-devicons can be found at:
 " https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Color Dev Icons
+Plug 'neoclide/jsonc.vim'               " JSON with comments support
 
 " Navigation & Searching
 Plug 'scrooloose/nerdtree'  " File Tree
