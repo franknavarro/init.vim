@@ -74,6 +74,8 @@ set shiftwidth=2    " number of spaces to use for autoindent
 set expandtab       " tabs are space
 set autoindent
 set copyindent      " copy indent from the previous line
+set pastetoggle=<F2>
+
 
 " vim-indent guides plugin
 let g:indent_guides_enable_on_vim_startup = 1
