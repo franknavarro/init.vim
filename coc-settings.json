@@ -13,12 +13,4 @@
   ],
   "prettier.singleQuote": true,
   "prettier.trailingComma": "all",
-  "solargraph.checkGemVersion": false,
-  "solargraph.diagnostics": true,
-  "solargraph.completion": true,
-  "solargraph.hover": true,
-  "solargraph.formatting": true,
-  "solargraph.definitions": true,
-  "solargraph.rename": true,
-  "solargraph.useBundler": true
 }
