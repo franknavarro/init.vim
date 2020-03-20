@@ -164,6 +164,7 @@ let g:coc_global_extensions = [
   \ 'coc-marketplace',
   \ 'coc-snippets',
   \ 'coc-tsserver',
+  \ 'coc-solargraph',
   \ 'coc-eslint',
   \ 'coc-prettier',
   \ 'coc-json',
