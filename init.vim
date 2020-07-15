@@ -37,7 +37,7 @@ Plug 'junegunn/fzf.vim' " Fuzzy finder for vim
 
 " Git integration
 Plug 'itchyny/vim-gitbranch'  " Display current git branch
-Plug 'tsony-tsonev/nerdtree-git-plugin' " Show git changes in NERDTree
+Plug 'Xuyuanp/nerdtree-git-plugin' " Show git changes in NERDTree
 Plug 'airblade/vim-gitgutter' " Show git changes in line number column
 
 " Auto completion
@@ -135,6 +135,7 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " Add git symbols and file highlighting in NERDTree
 let g:NERDTreeGitStatusWithFlags = 1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:DevIconsEnableFoldersOpenClose = 1
 let g:NERDTreeGitStatusNodeColorization = 1
 let g:NERDTreeColorMapCustom = {
     \ "Modified"  : ["#ffd700", "220", "NONE", "NONE"],  
